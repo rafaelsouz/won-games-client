@@ -1,3 +1,7 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const Wrapper = styled.main``
+import { LogoProps } from './index';
+
+export const Wrapper = styled.div<LogoProps>`
+  color: ${({ theme, color = 'white' }) => theme.colors[color]};
+`;
