@@ -37,8 +37,8 @@ describe('<Logo />', () => {
     });
   });
 
-  it('deve renderizar a logo grande sem o texto, se tiver a prop hideText e na resolução de celular', () => {
-    renderWithTheme(<Logo hideText />);
+  it('deve renderizar a logo grande sem o texto, se tiver a prop hideTextOnMobile e na resolução de celular', () => {
+    renderWithTheme(<Logo hideTextOnMobile />);
 
     expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyleRule(
       'width',

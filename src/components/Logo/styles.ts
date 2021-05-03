@@ -13,7 +13,7 @@ const wrapperModifiers = {
     height: 5.9rem;
   `,
 
-  hideText: () => css`
+  hideTextOnMobile: () => css`
     ${media.lessThan('medium')`
       width: 5.8rem;
       height: 4.5rem;
@@ -31,10 +31,10 @@ const wrapperModifiers = {
 };
 
 export const Wrapper = styled.div<LogoProps>`
-  ${({ theme, color, size, hideText }) => css`
+  ${({ theme, color, size, hideTextOnMobile }) => css`
     color: ${theme.colors[color!]};
 
     ${!!size && wrapperModifiers[size]}
-    ${!!hideText && wrapperModifiers.hideText}
+    ${!!hideTextOnMobile && wrapperModifiers.hideTextOnMobile}
   `}
 `;

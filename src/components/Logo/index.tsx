@@ -3,15 +3,15 @@ import * as S from './styles';
 export type LogoProps = {
   color?: 'white' | 'black';
   size?: 'normal' | 'large';
-  hideText?: boolean;
+  hideTextOnMobile?: boolean;
 };
 
 const Logo = ({
   color = 'white',
   size = 'normal',
-  hideText = false
+  hideTextOnMobile = false
 }: LogoProps) => (
-  <S.Wrapper color={color} size={size} hideText={hideText}>
+  <S.Wrapper color={color} size={size} hideTextOnMobile={hideTextOnMobile}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
