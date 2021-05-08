@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
   font-weight: 300;
   font-display: swap;
   src: local(''),
-       url('/fonts/poppins-v15-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/poppins-v15-latin-300.woff2') format('woff2'); /* Chrome 26+, Opera 23+, Firefox 39+ */
 }
 @font-face {
   font-family: 'Poppins';
@@ -16,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
   font-weight: 400;
   font-display: swap;
   src: local(''),
-       url('/fonts/poppins-v15-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/poppins-v15-latin-regular.woff2') format('woff2'); /* Chrome 26+, Opera 23+, Firefox 39+ */
 }
 @font-face {
   font-family: 'Poppins';
@@ -24,7 +24,7 @@ const GlobalStyles = createGlobalStyle`
   font-weight: 600;
   font-display: swap;
   src: local(''),
-       url('/fonts/poppins-v15-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/poppins-v15-latin-600.woff2') format('woff2'); /* Chrome 26+, Opera 23+, Firefox 39+ */
 }
 
   * {
