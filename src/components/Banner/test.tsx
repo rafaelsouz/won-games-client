@@ -5,7 +5,7 @@ import Banner from '.';
 
 describe('<Banner />', () => {
   it('deve renderizar o banner corretamente', () => {
-    renderWithTheme(
+    const { container } = renderWithTheme(
       <Banner
         title="Promoção de verão"
         subtitle="Desconto de 50% em todos os jogos."
@@ -31,8 +31,6 @@ describe('<Banner />', () => {
       })
     ).toBeInTheDocument();
 
-    // verifique se o title existe renderizado (.toBeInTheDocument())
-    // verifique se o subtitle existe renderizado
-    // verifique se a imagem existe renderizado
+    expect(container.firstChild).toMatchSnapshot();
   });
 });
