@@ -33,4 +33,28 @@ describe('<Banner />', () => {
 
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it('deve renderizar o badge', () => {
+    renderWithTheme(
+      <Banner
+        title="Promoção de verão"
+        subtitle="Desconto de 50% em todos os jogos."
+        img="https://source.unsplash.com/user/willianjusten/1042x580"
+        buttonLabel="Compre agora"
+        buttonLink="/games/defy-death"
+        ribbon="My Ribbon"
+        ribbonSize="small"
+        ribbonColor="secondary"
+      />
+    );
+
+    const ribbon = screen.getByText(/My Ribbon/i);
+
+    expect(ribbon).toBeInTheDocument();
+    expect(ribbon).toHaveStyle({ backgroundColor: '#3CD3C1' });
+    expect(ribbon).toHaveStyle({
+      height: '2.6rem',
+      fontSize: '1.2rem'
+    });
+  });
 });
