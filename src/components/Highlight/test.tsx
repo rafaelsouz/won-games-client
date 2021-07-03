@@ -1,6 +1,8 @@
 import { screen } from '@testing-library/react';
 import { renderWithTheme } from 'utils/tests/helper';
 
+import * as S from './styles';
+
 import Highlight from '.';
 
 const props = {
@@ -41,5 +43,35 @@ describe('<Highlight />', () => {
       'src',
       '/float-image.png'
     );
+  });
+
+  it('deve renderizar alinhado a direita, por padrão', () => {
+    const { container } = renderWithTheme(
+      <Highlight {...props} floatImage="/float-image.png" />
+    );
+
+    expect(container.firstChild).toHaveStyleRule(
+      'grid-template-areas',
+      "'floatimage content'"
+    );
+
+    expect(container.firstChild).toHaveStyleRule('text-align', 'right', {
+      modifier: `${S.Content}`
+    });
+  });
+
+  it('deve renderizar alinhado a esquerda, baseado na propriedade', () => {
+    const { container } = renderWithTheme(
+      <Highlight {...props} floatImage="/float-image.png" alignment="left" />
+    );
+
+    expect(container.firstChild).toHaveStyleRule(
+      'grid-template-areas',
+      "'content floatimage'"
+    );
+
+    expect(container.firstChild).toHaveStyleRule('text-align', 'left', {
+      modifier: `${S.Content}`
+    });
   });
 });
