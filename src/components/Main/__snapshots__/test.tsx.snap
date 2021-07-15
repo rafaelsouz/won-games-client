@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Main /> should render the heading 1`] = `
+exports[`<Main /> deve renderizar a main 1`] = `
 .c0 {
   background-color: #06092b;
   color: #fff;
@@ -68,4 +68,4 @@ exports[`<Main /> should render the heading 1`] = `
     src="/img/hero-illustration.svg"
   />
 </main>
-`
+`;
