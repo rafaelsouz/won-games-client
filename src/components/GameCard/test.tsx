@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import theme from 'styles/theme';
 import { renderWithTheme } from 'utils/tests/helper';
 
@@ -57,5 +57,39 @@ describe('<GameCard />', () => {
       'text-decoration',
       'line-through'
     );
+  });
+
+  it('deve renderizar o preço descontado e com estilos de promoção', () => {
+    renderWithTheme(<GameCard {...props} promotionalPrice="R$ 100,00" />);
+
+    const promocionalPrice = screen.getByText('R$ 100,00');
+    const priceWithoutDiscount = screen.getByText('R$ 235,00');
+
+    expect(priceWithoutDiscount).toHaveStyleRule(
+      'text-decoration',
+      'line-through'
+    );
+    expect(priceWithoutDiscount).toHaveStyle({ color: theme.colors.gray });
+
+    expect(promocionalPrice).not.toHaveStyleRule(
+      'text-decoration',
+      'line-through'
+    );
+  });
+
+  it('deve renderizar o ícone de favorito preenchido quando tiver sido favoritado', () => {
+    renderWithTheme(<GameCard {...props} favorite />);
+
+    expect(screen.getByLabelText(/remove from wishlist/i)).toBeInTheDocument();
+  });
+
+  it('deve chamar onFav quando o botão de favorito for clicada.', () => {
+    const onFav = jest.fn();
+
+    renderWithTheme(<GameCard {...props} favorite onFav={onFav} />);
+
+    fireEvent.click(screen.getAllByRole('button')[0]);
+
+    expect(onFav).toBeCalled();
   });
 });
