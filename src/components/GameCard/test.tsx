@@ -92,4 +92,27 @@ describe('<GameCard />', () => {
 
     expect(onFav).toBeCalled();
   });
+
+  it('deve renderizar o ribbon quando houver a prop ribbon sendo passada.', () => {
+    renderWithTheme(
+      <GameCard
+        {...props}
+        ribbon="20% Off"
+        ribbonColor="secondary"
+        ribbonSize="small"
+      />
+    );
+
+    const ribbon = screen.getByText(/20% Off/i);
+
+    expect(ribbon).toBeInTheDocument();
+    expect(ribbon).toHaveStyle({
+      backgroundColor: theme.colors.secondary
+    });
+
+    expect(ribbon).toHaveStyle({
+      height: '2.6rem',
+      fontSize: '1.2rem'
+    });
+  });
 });
