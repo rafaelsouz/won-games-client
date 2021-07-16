@@ -9,7 +9,7 @@ describe('<Banner />', () => {
       <Banner
         title="Promoção de verão"
         subtitle="Desconto de 50% em todos os jogos."
-        img="https://source.unsplash.com/user/willianjusten/1042x580"
+        img="https://source.unsplash.com/random/1042x580"
         buttonLabel="Compre agora"
         buttonLink="/games/defy-death"
       />
@@ -39,7 +39,7 @@ describe('<Banner />', () => {
       <Banner
         title="Promoção de verão"
         subtitle="Desconto de 50% em todos os jogos."
-        img="https://source.unsplash.com/user/willianjusten/1042x580"
+        img="https://source.unsplash.com/random/1042x580"
         buttonLabel="Compre agora"
         buttonLink="/games/defy-death"
         ribbon="My Ribbon"

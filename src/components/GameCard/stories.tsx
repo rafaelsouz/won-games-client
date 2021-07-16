@@ -7,7 +7,7 @@ export default {
   args: {
     title: 'Red Dead Redemption ',
     developer: 'Rockstar Games',
-    img: 'https://source.unsplash.com/user/rafael/300x144',
+    img: 'https://source.unsplash.com/random/300x144',
     price: 'R$ 235,00',
     promotionalPrice: 'R$ 200,00'
   },

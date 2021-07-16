@@ -39,7 +39,7 @@ exports[`<Banner /> deve renderizar o banner corretamente 1`] = `
   width: 100%;
   height: 23rem;
   background-color: #EAEAEA;
-  background-image: url(https://source.unsplash.com/user/willianjusten/1042x580);
+  background-image: url(https://source.unsplash.com/random/1042x580);
   background-position: center center;
   background-size: cover;
 }
@@ -119,7 +119,7 @@ exports[`<Banner /> deve renderizar o banner corretamente 1`] = `
     aria-label="Promoção de verão"
     class="c1"
     role="img"
-    src="https://source.unsplash.com/user/willianjusten/1042x580"
+    src="https://source.unsplash.com/random/1042x580"
   />
   <div
     class="c2"
