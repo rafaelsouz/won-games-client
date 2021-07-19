@@ -44,7 +44,7 @@ describe('<BannerSlider />', () => {
     ).toBeInTheDocument();
   });
 
-  it('Deve renderizar o "dots" dos slides', () => {
+  it('Deve renderizar o slider com um ponto para cada item slide', () => {
     const { container } = renderWithTheme(<BannerSlider items={items} />);
 
     expect(container.querySelector('.slick-dots')).toBeInTheDocument();
