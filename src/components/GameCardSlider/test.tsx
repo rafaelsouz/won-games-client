@@ -1,4 +1,4 @@
-import 'match-media-mock';
+import '../../../.jest/match-media-mock';
 import { screen } from '@testing-library/react';
 import { renderWithTheme } from 'utils/tests/helper';
 
@@ -43,12 +43,12 @@ const items = [
 ];
 
 describe('<GameSlider />', () => {
-  it('should render with 4 active items', () => {
+  it('deve renderizar com 4 itens ativos', () => {
     const { container } = renderWithTheme(<GameCardSlider items={items} />);
     expect(container.querySelectorAll('.slick-active')).toHaveLength(4);
   });
 
-  it('should render white arrows if color passed', () => {
+  it('Deve renderizar as setas com cor branca, caso a cor seja passada.', () => {
     renderWithTheme(<GameCardSlider items={items} color="white" />);
 
     expect(screen.getByLabelText(/previous games/i)).toHaveStyle({
