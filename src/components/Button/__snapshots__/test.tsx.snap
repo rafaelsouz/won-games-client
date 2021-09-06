@@ -28,7 +28,7 @@ exports[`<Button /> deve renderizar tamanho médio por padrão 1`] = `
 }
 
 .c0:hover {
-  background-color: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
+  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
 }
 
 <button

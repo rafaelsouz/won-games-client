@@ -65,4 +65,38 @@ describe('<Button />', () => {
       '/link'
     );
   });
+
+  it('deve renderizar a uma versão minimalista do botão', () => {
+    renderWithTheme(
+      <Button icon={<AddShoppingCart data-testid="icon" />} minimal>
+        Buy now
+      </Button>
+    );
+
+    expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyle({
+      background: 'none',
+      color: '#F231A5'
+    });
+
+    expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyleRule(
+      'background',
+      'none',
+      {
+        modifier: ':hover'
+      }
+    );
+  });
+
+  it('deve renderizar a botão como um link', () => {
+    renderWithTheme(
+      <Button as="a" href="/link">
+        Buy now
+      </Button>
+    );
+
+    expect(screen.getByRole('link', { name: /buy now/i })).toHaveAttribute(
+      'href',
+      '/link'
+    );
+  });
 });

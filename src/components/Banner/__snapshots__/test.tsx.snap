@@ -28,7 +28,7 @@ exports[`<Banner /> deve renderizar o banner corretamente 1`] = `
 }
 
 .c5:hover {
-  background-color: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
+  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
 }
 
 .c0 {

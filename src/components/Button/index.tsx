@@ -9,6 +9,7 @@ export type ButtonProps = {
   children?: React.ReactNode;
   size?: 'small' | 'medium' | 'large';
   fullWidth?: boolean;
+  minimal?: boolean;
   icon?: React.ReactNode;
   onClick?: () => (event: React.MouseEvent<HTMLButtonElement>) => void;
   as?: React.ElementType;
@@ -19,9 +20,16 @@ const Button = ({
   size = 'medium',
   fullWidth = false,
   icon,
+  minimal = false,
   ...props
 }: ButtonProps) => (
-  <S.Wrapper fullWidth={fullWidth} size={size} hasIcon={!!icon} {...props}>
+  <S.Wrapper
+    fullWidth={fullWidth}
+    size={size}
+    hasIcon={!!icon}
+    minimal={minimal}
+    {...props}
+  >
     {!!icon && icon}
     {!!children && <span>{children}</span>}
   </S.Wrapper>
