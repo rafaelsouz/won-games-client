@@ -1,25 +1,46 @@
-import { InputHTMLAttributes } from 'hoist-non-react-statics/node_modules/@types/react';
+import { InputHTMLAttributes, useState } from 'react';
 import * as S from './styles';
 
 export type CheckboxProps = {
   label?: string;
   labelFor?: string;
   labelColor?: 'white' | 'black';
+  onCheck?: (status: boolean) => void;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 const Checkbox = ({
   label,
   labelFor = '',
-  labelColor = 'white'
-}: CheckboxProps) => (
-  <S.Wrapper>
-    <S.Input id={labelFor} type="checkbox" />
-    {!!label && (
-      <S.Label htmlFor={labelFor} labelColor={labelColor}>
-        {label}
-      </S.Label>
-    )}
-  </S.Wrapper>
-);
+  labelColor = 'white',
+  onCheck
+}: CheckboxProps) => {
+  const [checked, setCheck] = useState(false);
+
+  const onChange = () => {
+    const status = !checked;
+
+    setCheck(status);
+
+    if (onCheck) {
+      onCheck(status);
+    }
+  };
+
+  return (
+    <S.Wrapper>
+      <S.Input
+        id={labelFor}
+        type="checkbox"
+        onChange={onChange}
+        checked={checked}
+      />
+      {!!label && (
+        <S.Label htmlFor={labelFor} labelColor={labelColor}>
+          {label}
+        </S.Label>
+      )}
+    </S.Wrapper>
+  );
+};
 
 export default Checkbox;
