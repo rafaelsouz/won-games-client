@@ -1,6 +1,8 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { Email } from '@styled-icons/material-outlined/Email';
+
 import { renderWithTheme } from 'utils/tests/helper';
 
 import TextField from '.';
@@ -9,7 +11,7 @@ describe('<TextField />', () => {
   it('Deve renderizar com label', () => {
     renderWithTheme(<TextField label="label" labelFor="Field" id="Field" />);
 
-    expect(screen.getByLabelText('Label')).toBeInTheDocument();
+    expect(screen.getByLabelText('label')).toBeInTheDocument();
   });
 
   it('Deve renderizar com placeholder', () => {
@@ -43,13 +45,27 @@ describe('<TextField />', () => {
     expect(onInput).toHaveBeenCalledWith(text);
   });
 
-  it('Is accessible by tab', () => {
-    renderWithTheme(<TextField label="TextField" labelFor="TextField" />);
+  it('É acessivel com o tab', () => {
+    renderWithTheme(
+      <TextField label="TextField" labelFor="TextField" id="TextField" />
+    );
 
     const input = screen.getByLabelText('TextField');
     expect(document.body).toHaveFocus();
 
     userEvent.tab();
     expect(input).toHaveFocus();
+  });
+
+  it('Deve renderizar com o icone', () => {
+    renderWithTheme(
+      <TextField
+        label="TextField"
+        labelFor="TextField"
+        icon={<Email data-testid="icon" />}
+      />
+    );
+
+    expect(screen.getByTestId('icon')).toBeInTheDocument();
   });
 });
