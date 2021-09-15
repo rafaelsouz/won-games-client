@@ -68,4 +68,17 @@ describe('<TextField />', () => {
 
     expect(screen.getByTestId('icon')).toBeInTheDocument();
   });
+
+  it('Deve renderizar com o icone no lado direito', () => {
+    renderWithTheme(
+      <TextField
+        label="TextField"
+        labelFor="TextField"
+        icon={<Email data-testid="icon" />}
+        iconPosition="right"
+      />
+    );
+
+    expect(screen.getByTestId('icon').parentElement).toHaveStyle({ order: 1 });
+  });
 });
