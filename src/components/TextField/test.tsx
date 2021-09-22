@@ -81,4 +81,38 @@ describe('<TextField />', () => {
 
     expect(screen.getByTestId('icon').parentElement).toHaveStyle({ order: 1 });
   });
+
+  it('Não deve alterar o valor quando tiver desabilitado', async () => {
+    const onInput = jest.fn();
+    renderWithTheme(
+      <TextField
+        onInput={onInput}
+        label="TextField"
+        labelFor="TextField"
+        id="TextField"
+        disabled
+      />
+    );
+
+    const input = screen.getByRole('textbox');
+    expect(input).toBeDisabled();
+
+    const text = 'This is my new text';
+    userEvent.type(input, text);
+
+    await waitFor(() => {
+      expect(input).not.toHaveValue(text);
+    });
+    expect(onInput).not.toHaveBeenCalled();
+  });
+
+  it('Deve renderizar o input com erro', async () => {
+    const { container } = renderWithTheme(
+      <TextField label="TextField" labelFor="TextField" error="Error message" />
+    );
+
+    expect(screen.getByText('Error message')).toBeInTheDocument();
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

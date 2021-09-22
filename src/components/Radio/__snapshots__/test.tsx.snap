@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Radio /> dev renderizar com a  label na cor branca 1`] = `
+exports[`<Radio /> deve renderizar com a  label na cor branca 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
