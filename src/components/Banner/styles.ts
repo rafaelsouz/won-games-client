@@ -5,11 +5,6 @@ import * as RibbonStyles from 'components/Ribbon/styles';
 
 export const Wrapper = styled.main`
   position: relative;
-
-  ${media.greaterThan('medium')`
-    box-shadow: 0 0.4rem 0.5rem 0 rgba(0, 0, 0, 0.2);
-  `}
-
   ${media.lessThan('large')`
     ${RibbonStyles.Wrapper} {
       right: 0;
@@ -17,6 +12,9 @@ export const Wrapper = styled.main`
         display: none;
       }
     }
+  `}
+  ${media.greaterThan('medium')`
+    box-shadow: 0 0.4rem 0.5rem 0 rgba(0, 0, 0, 0.2);
   `}
 `;
 
@@ -29,11 +27,9 @@ export const Image = styled.div<ImageProps>`
     width: 100%;
     height: 23rem;
     background-color: ${theme.colors.lightGray};
-
     background-image: url(${src});
     background-position: center center;
     background-size: cover;
-
     ${media.greaterThan('medium')`
       height: 58rem;
     `}
