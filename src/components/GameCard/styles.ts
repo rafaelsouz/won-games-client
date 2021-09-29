@@ -1,5 +1,4 @@
-import styled, { css } from 'styled-components';
-import { DefaultTheme } from 'styled-components';
+import styled, { css, DefaultTheme } from 'styled-components';
 
 export const Wrapper = styled.article`
   ${({ theme }) => css`
@@ -8,7 +7,6 @@ export const Wrapper = styled.article`
     flex-direction: column;
     width: 100%;
     height: 100%;
-
     background-color: ${theme.colors.white};
   `}
 `;
@@ -16,7 +14,6 @@ export const Wrapper = styled.article`
 export const ImageBox = styled.div`
   min-height: 14rem;
   width: 100%;
-
   background: #f6f7f8;
   background-image: linear-gradient(
     to right,
@@ -25,17 +22,13 @@ export const ImageBox = styled.div`
     #f6f7f8 40%,
     #f6f7f8 100%
   );
-
   background-size: 80rem 14rem;
-
+  animation: placeholderShimmer 1s linear infinite forwards;
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-
-  animation: placeholderShimmer 1s linear infinite forwards;
-
   @keyframes placeholderShimmer {
     0% {
       background-position: -40rem 0;
@@ -50,10 +43,10 @@ export const Content = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     position: relative;
     height: 100%;
     margin: ${theme.spacings.xsmall};
-    justify-content: space-between;
   `}
 `;
 
@@ -72,39 +65,31 @@ export const Title = styled.h3`
 
 export const Developer = styled.h4`
   ${({ theme }) => css`
-    font-size: ${theme.font.sizes.xsmall};
-    line-height: ${theme.font.sizes.large};
+    font-size: ${theme.font.sizes.small};
     font-weight: ${theme.font.bold};
     color: ${theme.colors.gray};
   `}
 `;
 
-export const FavButton = styled.button`
+export const FavButton = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.primary};
     position: absolute;
     right: 0;
     top: -0.5rem;
     cursor: pointer;
-
-    border: none;
-    background: none;
-
     svg {
       width: 2.5rem;
     }
   `}
 `;
 
-export const BuyBox = styled.button`
+export const BuyBox = styled.div`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
     justify-content: flex-end;
     margin-top: ${theme.spacings.xxsmall};
-
-    border: none;
-    background: none;
   `}
 `;
 
@@ -120,10 +105,10 @@ const priceModifiers = {
     border-radius: ${theme.border.radius};
     margin-right: calc(${theme.spacings.xxsmall} / 2);
   `,
+
   promotional: (theme: DefaultTheme) => css`
     color: ${theme.colors.gray};
     text-decoration: line-through;
-    background-color: none;
     margin-right: ${theme.spacings.xxsmall};
   `
 };
@@ -134,8 +119,7 @@ export const Price = styled.div<PriceProps>`
     font-weight: ${theme.font.bold};
     height: 3rem;
     align-items: center;
-
-    ${!isPromotional && priceModifiers.default(theme)}
-    ${isPromotional && priceModifiers.promotional(theme)}
+    ${!isPromotional && priceModifiers.default(theme)};
+    ${isPromotional && priceModifiers.promotional(theme)};
   `}
 `;
