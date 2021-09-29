@@ -4,6 +4,12 @@ import { renderWithTheme } from 'utils/tests/helper';
 import Logo from '.';
 
 describe('<Logo />', () => {
+  it('deve renderizar a logo com o id passado', () => {
+    const { container } = renderWithTheme(<Logo id="myId" />);
+
+    expect(container.querySelector('#paint_linear_myId')).toBeInTheDocument();
+  });
+
   it('deve renderizar o texto da logo em branco por padrão', () => {
     renderWithTheme(<Logo />);
 
