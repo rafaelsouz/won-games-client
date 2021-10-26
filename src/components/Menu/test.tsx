@@ -33,7 +33,7 @@ describe('<Menu />', () => {
   it('deve mostrar o container de autenticação quando estiver deslogado.', () => {
     renderWithTheme(<Menu />);
 
-    expect(screen.queryByText(/log in now/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/sign in/i)).toHaveLength(2);
     expect(screen.queryByText(/sign up/i)).toBeInTheDocument();
 
     expect(screen.queryByText(/wishlist/i)).not.toBeInTheDocument();
@@ -43,7 +43,7 @@ describe('<Menu />', () => {
   it('deve mostrar o botão da "wishlist" e "my account" quando estiver logado.', () => {
     renderWithTheme(<Menu username="Rafael" />);
 
-    expect(screen.queryByText(/log in now/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/sign in/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/sign up/i)).not.toBeInTheDocument();
 
     expect(screen.getByText(/wishlist/i)).toBeInTheDocument();
