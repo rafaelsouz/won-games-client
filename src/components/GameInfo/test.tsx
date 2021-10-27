@@ -11,13 +11,15 @@ const props = {
 
 describe('<GameInfo />', () => {
   it('Deve renderizar as informações do jogo', () => {
-    renderWithTheme(<GameInfo {...props} />);
+    const { container } = renderWithTheme(<GameInfo {...props} />);
 
     expect(
       screen.getByRole('heading', { name: /My game title/i })
     ).toBeInTheDocument();
     expect(screen.getByText(/Game description/i)).toBeInTheDocument();
     expect(screen.getByText(/\$210,00/i)).toBeInTheDocument();
+
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('Deve renderizar os botões', () => {
