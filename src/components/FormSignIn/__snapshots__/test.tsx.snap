@@ -126,7 +126,7 @@ exports[`<FormSignIn /> Deve renderiza o formulario 1`] = `
 
 <body>
   <div>
-    <main
+    <div
       class="c0"
     >
       <form>
@@ -231,7 +231,7 @@ exports[`<FormSignIn /> Deve renderiza o formulario 1`] = `
           </a>
         </div>
       </form>
-    </main>
+    </div>
   </div>
 </body>
 `;

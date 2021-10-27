@@ -44,7 +44,7 @@ describe('<Form />', () => {
 
       <body>
         <div>
-          <main
+          <div
             class="c0"
           >
             <div
@@ -57,7 +57,7 @@ describe('<Form />', () => {
                 link
               </a>
             </div>
-          </main>
+          </div>
         </div>
       </body>
     `);

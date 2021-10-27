@@ -111,7 +111,7 @@ exports[`<FormSignUp /> Deve renderiza o formulario 1`] = `
   border-bottom: 0.1rem solid #29b3a3;
 }
 
-<main
+<div
   class="c0"
 >
   <form>
@@ -287,5 +287,5 @@ exports[`<FormSignUp /> Deve renderiza o formulario 1`] = `
       </a>
     </div>
   </form>
-</main>
+</div>
 `;
