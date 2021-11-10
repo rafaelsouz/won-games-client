@@ -10,7 +10,8 @@ export default {
     }
   },
   args: {
-    platforms: ['Windows', 'Linux', 'Mac']
+    platforms: ['Windows', 'Linux', 'Mac'],
+    releaseDate: '2020-11-21T23:00:00'
   },
   argTypes: {
     platforms: {
