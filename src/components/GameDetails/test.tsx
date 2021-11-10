@@ -7,7 +7,7 @@ const props: GameDetailsProps = {
   developer: 'Different Tales',
   releaseDate: '2020-11-21T23:00:00',
   platforms: ['Windows', 'Mac', 'Linux'],
-  // publisher: 'Walkabout',
+  publisher: 'Walkabout',
   rating: 'BR0',
   genres: ['Role-playing', 'Narrative']
 };
@@ -77,5 +77,11 @@ describe('<GameDetails />', () => {
     renderWithTheme(<GameDetails {...props} />);
 
     expect(screen.getByText('Role-playing / Narrative')).toBeInTheDocument();
+  });
+
+  it('deve renderizar a publisher', () => {
+    renderWithTheme(<GameDetails {...props} />);
+
+    expect(screen.getByText(/Walkabout/i)).toBeInTheDocument();
   });
 });
