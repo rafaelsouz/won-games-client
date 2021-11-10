@@ -6,10 +6,10 @@ import GameDetails, { GameDetailsProps } from '.';
 const props: GameDetailsProps = {
   developer: 'Different Tales',
   releaseDate: '2020-11-21T23:00:00',
-  platforms: ['Windows', 'Mac', 'Linux']
+  platforms: ['Windows', 'Mac', 'Linux'],
   // publisher: 'Walkabout',
-  // rating: 'BR0',
-  // genres: ['Role-playing']
+  rating: 'BR0',
+  genres: ['Role-playing', 'Narrative']
 };
 
 describe('<GameDetails />', () => {
@@ -53,5 +53,29 @@ describe('<GameDetails />', () => {
     renderWithTheme(<GameDetails {...props} />);
 
     expect(screen.getByText('Nov 21, 2020')).toBeInTheDocument();
+  });
+
+  it('deve renderizar 18+ quando for BR18', () => {
+    renderWithTheme(<GameDetails {...props} rating="BR18" />);
+
+    expect(screen.getByText(/18\+/i)).toBeInTheDocument();
+  });
+
+  it('deve renderizar FREE quando for BR0', () => {
+    renderWithTheme(<GameDetails {...props} />);
+
+    expect(screen.getByText(/FREE/i)).toBeInTheDocument();
+  });
+
+  it('deve renderizar FREE quando for BR0', () => {
+    renderWithTheme(<GameDetails {...props} />);
+
+    expect(screen.getByText(/FREE/i)).toBeInTheDocument();
+  });
+
+  it('deve renderizar a lista de gêneros', () => {
+    renderWithTheme(<GameDetails {...props} />);
+
+    expect(screen.getByText('Role-playing / Narrative')).toBeInTheDocument();
   });
 });

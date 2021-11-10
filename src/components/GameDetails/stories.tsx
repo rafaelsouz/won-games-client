@@ -11,7 +11,9 @@ export default {
   },
   args: {
     platforms: ['Windows', 'Linux', 'Mac'],
-    releaseDate: '2020-11-21T23:00:00'
+    releaseDate: '2020-11-21T23:00:00',
+    rating: 'BR0',
+    genres: ['Role-playing']
   },
   argTypes: {
     platforms: {
