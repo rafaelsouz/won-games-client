@@ -28,7 +28,7 @@ describe('<Gallery />', () => {
 
     // Verifica se o modal está escondido
     expect(modal.getAttribute('aria-hidden')).toBe('true');
-    expect(modal).toHaveStyle({ opacity: 0 });
+    expect(modal).toHaveStyle({ opacity: 0, pointerEvents: 'none' });
 
     // Clica na imagem e verifica se o modal abriu
     fireEvent.click(
@@ -37,10 +37,23 @@ describe('<Gallery />', () => {
 
     expect(modal.getAttribute('aria-hidden')).toBe('false');
     expect(modal).toHaveStyle({ opacity: 1 });
+  });
 
-    // fireEvent.click(screen.getByLabelText(/close menu/i));
+  it('Deve fechar o modal quando overlay ou botão de fechar for clicado', () => {
+    renderWithTheme(<Gallery items={mockItems.slice(0, 2)} />);
 
-    // expect(modal.getAttribute('aria-hidden')).toBe('true');
-    // expect(modal).toHaveStyle({ opacity: 0 });
+    // seleciona o modal
+    const modal = screen.getByLabelText('modal');
+
+    // Clica na imagem e verifica se o modal abriu
+    fireEvent.click(
+      screen.getByRole('button', { name: /Thumb - Gallery Image 1/i })
+    );
+
+    // clicando para fechar o modal
+    fireEvent.click(screen.getByRole('button', { name: /close modal/i }));
+
+    expect(modal.getAttribute('aria-hidden')).toBe('true');
+    expect(modal).toHaveStyle({ opacity: 0 });
   });
 });
