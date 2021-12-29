@@ -1,16 +1,23 @@
 import Base from 'templates/Base';
 
+import GameInfo, { GameInfoProps } from 'components/GameInfo';
+
 import * as S from './styles';
 
-const Game = () => (
+export type GameTemplateProps = {
+  cover: string;
+  gameInfo: GameInfoProps;
+};
+
+const Game = ({ cover, gameInfo }: GameTemplateProps) => (
   <Base>
-    <S.Cover
-      src={
-        'https://p2.trrsf.com/image/fget/cf/1200/628/middle/images.terra.com/2021/07/20/cyberpunk2077-05.jpg'
-      }
-      role="image"
-      aria-label="cover"
-    />
+    <S.Cover src={cover} role="image" aria-label="cover" />
+
+    <S.Main>
+      <S.SectionGameInfo>
+        <GameInfo {...gameInfo} />
+      </S.SectionGameInfo>
+    </S.Main>
   </Base>
 );
 
