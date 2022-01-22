@@ -84,4 +84,10 @@ describe('<GameDetails />', () => {
 
     expect(screen.getByText(/Walkabout/i)).toBeInTheDocument();
   });
+
+  it('deve renderizar render o desenvolvedor', () => {
+    renderWithTheme(<GameDetails {...props} />);
+
+    expect(screen.getByText(/Different Tales/i)).toBeInTheDocument();
+  });
 });
