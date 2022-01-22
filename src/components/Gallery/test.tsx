@@ -36,7 +36,7 @@ describe('<Gallery />', () => {
     );
 
     const img = await screen.findByRole('img', {
-      name: /Thumb - Gallery Image 2/i
+      name: /Gallery Image 2/i
     });
 
     // espero que a imagem da thumbnail
