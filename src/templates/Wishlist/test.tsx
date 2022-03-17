@@ -7,6 +7,7 @@ import highlightMock from 'components/Highlight/mock';
 import { renderWithTheme } from 'utils/tests/helper';
 
 const props = {
+  games: gamesMock,
   recommendedHighlight: highlightMock,
   recommendedGames: gamesMock
 };
@@ -26,6 +27,7 @@ describe('<Wishlist />', () => {
       screen.getByRole('heading', { name: /Wishlist/i })
     ).toBeInTheDocument();
 
+    expect(screen.getAllByText(/population zero/i)).toHaveLength(6);
     expect(screen.getByTestId(/mock showcase/i)).toBeInTheDocument();
   });
 });
