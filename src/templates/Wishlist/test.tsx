@@ -20,7 +20,7 @@ jest.mock('components/Showcase', () => ({
 }));
 
 describe('<Wishlist />', () => {
-  it('should render the heading', () => {
+  it('deve renderizar a wishlist corretamente', () => {
     renderWithTheme(<Wishlist {...props} />);
 
     expect(
@@ -29,5 +29,20 @@ describe('<Wishlist />', () => {
 
     expect(screen.getAllByText(/population zero/i)).toHaveLength(6);
     expect(screen.getByTestId(/mock showcase/i)).toBeInTheDocument();
+  });
+
+  it('deve renderizar o componente vazia quando não existir jogos', () => {
+    renderWithTheme(
+      <Wishlist
+        recommendedGames={gamesMock}
+        recommendedHighlight={highlightMock}
+      />
+    );
+
+    expect(screen.queryByText(/population zero/i)).not.toBeInTheDocument();
+
+    expect(
+      screen.getByRole('heading', { name: /your wishlist is empty/i })
+    ).toBeInTheDocument();
   });
 });
