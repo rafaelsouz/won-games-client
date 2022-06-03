@@ -49,12 +49,20 @@ export const Title = styled.h3`
     line-height: ${theme.font.sizes.small};
     font-weight: ${theme.font.bold};
     color: ${theme.colors.black};
-    margin-bottom: ${theme.spacings.xxsmall};
 
     ${media.greaterThan('medium')`
       font-size: 2rem;
       line-height: 2rem;
     `};
+  `}
+`;
+
+export const TitleBox = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+
+    margin-bottom: ${theme.spacings.xxsmall};
   `}
 `;
 
@@ -66,5 +74,12 @@ export const Price = styled.div`
     border-radius: ${theme.border.radius};
     font-size: ${theme.font.sizes.small};
     font-weight: ${theme.font.bold};
+  `}
+`;
+
+export const DownloadLink = styled.a`
+  ${({ theme }) => css`
+    color: ${theme.colors.primary};
+    margin-left: ${theme.spacings.xxsmall};
   `}
 `;
